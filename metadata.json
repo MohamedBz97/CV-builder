@@ -1,0 +1,5 @@
+{
+  "name": "AI Resume Architect",
+  "description": "An intelligent, step-by-step resume and cover letter builder inspired by modern resume platforms. Features AI-powered content suggestions, multiple templates, PDF export, and a job application tracker, all while prioritizing user privacy by keeping data client-side.",
+  "requestFramePermissions": []
+}
