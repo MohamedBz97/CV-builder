@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ResumeSchema, SectionKey } from '../../types';
 
@@ -143,7 +144,7 @@ const ModernTemplate: React.FC<TemplateProps> = ({ data, sectionOrder }) => {
 
 
   return (
-    <div className="flex font-sans text-sm h-full">
+    <div className="flex font-sans text-sm min-h-full">
       {/* Sidebar */}
       <div className="w-1/3 bg-neutral-800 text-white p-6 flex flex-col">
         <div className="text-center mb-8">

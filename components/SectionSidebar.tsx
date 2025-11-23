@@ -1,3 +1,4 @@
+
 import React, { useRef } from 'react';
 import { ResumeLayout, SectionKey } from '../types';
 import ManageSectionsModal from './ManageSectionsModal';
@@ -38,11 +39,17 @@ const SectionSidebar: React.FC<SectionSidebarProps> = ({ layout, setLayout, acti
   };
 
   const handleDragEnter = (e: React.DragEvent<HTMLLIElement>, position: number) => {
+    if (dragItem.current === null || dragItem.current === undefined) return;
+    if (position < 0) return; // Prevent dragging into 'basics' position or invalid indices
+    if (dragItem.current === position) return;
+
     dragOverItem.current = position;
     const list = [...layout.sectionOrder];
-    const dragItemContent = list[dragItem.current!];
-    list.splice(dragItem.current!, 1);
-    list.splice(dragOverItem.current!, 0, dragItemContent);
+    const dragItemContent = list[dragItem.current];
+    
+    list.splice(dragItem.current, 1);
+    list.splice(dragOverItem.current, 0, dragItemContent);
+    
     dragItem.current = dragOverItem.current;
     setLayout(prev => ({ ...prev, sectionOrder: list }));
   };

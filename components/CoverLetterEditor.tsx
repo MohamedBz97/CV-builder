@@ -1,6 +1,5 @@
+
 import React, { useState, useRef } from 'react';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { DEFAULT_COVER_LETTER_SCHEMA, DEFAULT_RESUME_SCHEMA } from '../constants';
 import { CoverLetterSchema, ResumeSchema, Template } from '../types';
@@ -9,6 +8,7 @@ import CoverLetterPreview from './CoverLetterPreview';
 import TemplateGallery from './TemplateGallery';
 import { ArrowDownTrayIcon, EyeIcon } from './icons';
 import { useAuth } from '../contexts/AuthContext';
+import { generatePdf } from '../utils/pdfUtils';
 
 const CoverLetterEditor: React.FC = () => {
   const { currentUser } = useAuth();
@@ -20,50 +20,18 @@ const CoverLetterEditor: React.FC = () => {
   const [isTemplateGalleryOpen, setIsTemplateGalleryOpen] = useState(false);
   const previewRef = useRef<HTMLDivElement>(null);
 
-  const handleDownloadPdf = () => {
+  const handleDownloadPdf = async () => {
     const input = previewRef.current;
     if (input) {
       setIsDownloading(true);
-      const originalWidth = input.style.width;
-      input.style.width = `816px`;
-
-      html2canvas(input, {
-        scale: 4, 
-        useCORS: true, 
-        logging: false,
-      }).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF({
-          orientation: 'portrait',
-          unit: 'pt',
-          format: 'a4',
-        });
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
-        
-        const canvasAspectRatio = canvas.width / canvas.height;
-        const pdfAspectRatio = pdfWidth / pdfHeight;
-
-        let finalCanvasWidth, finalCanvasHeight;
-
-        if (canvasAspectRatio > pdfAspectRatio) {
-            finalCanvasWidth = pdfWidth;
-            finalCanvasHeight = pdfWidth / canvasAspectRatio;
-        } else {
-            finalCanvasHeight = pdfHeight;
-            finalCanvasWidth = pdfHeight * canvasAspectRatio;
-        }
-
-        pdf.addImage(imgData, 'PNG', 0, 0, finalCanvasWidth, finalCanvasHeight);
-        pdf.save(`${resumeSchema.basics.name.replace(' ', '_')}_Cover_Letter.pdf`);
-        
-        input.style.width = originalWidth;
-        setIsDownloading(false);
-      }).catch(err => {
-        console.error("Error generating PDF:", err);
-        input.style.width = originalWidth;
-        setIsDownloading(false);
-      });
+      try {
+          await generatePdf(input, `${resumeSchema.basics.name.replace(/\s+/g, '_')}_Cover_Letter.pdf`);
+      } catch(error) {
+          console.error("Error generating PDF:", error);
+          alert("Failed to generate PDF. Please try again.");
+      } finally {
+          setIsDownloading(false);
+      }
     }
   };
 
@@ -106,7 +74,7 @@ const CoverLetterEditor: React.FC = () => {
             </div>
         </div>
         <div className="flex-grow pt-8 overflow-y-auto">
-          <div ref={previewRef} className="w-full mx-auto" style={{ maxWidth: '816px' }}>
+          <div ref={previewRef} className="w-full mx-auto">
             <CoverLetterPreview
               coverLetterData={coverLetterSchema}
               basics={resumeSchema.basics}

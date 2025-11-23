@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ResumeSchema, SectionKey } from '../../types';
 
@@ -167,7 +168,7 @@ const ClassicTemplate: React.FC<TemplateProps> = ({ data, sectionOrder }) => {
 
 
   return (
-    <div className="p-8 text-sm font-serif text-gray-800">
+    <div className="p-8 text-sm font-serif text-gray-800 min-h-full">
       <header className="text-center mb-8">
         <h1 className="text-4xl font-bold tracking-wider">{basics.name}</h1>
         <p className="text-lg text-blue-800 font-semibold mt-1">{basics.label}</p>

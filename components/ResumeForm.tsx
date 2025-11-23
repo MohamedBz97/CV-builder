@@ -1,8 +1,10 @@
+
 import React, { useState, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ResumeSchema, Work, Education, Skill, Profile, Project, Award, Certificate, Volunteer, Publication, Language, Interest, Reference, SectionKey } from '../types';
 import { generateSummarySuggestion, generateExperienceSuggestion, generateProjectSuggestion } from '../services/geminiService';
 import { UserCircleIcon, BriefcaseIcon, AcademicCapIcon, LightBulbIcon, PlusCircleIcon, TrashIcon, SparklesIcon, TrophyIcon, CodeBracketIcon, DocumentCheckIcon, HeartIcon, BookOpenIcon, LanguageIcon, FaceSmileIcon, UsersIcon } from './icons';
+import BulletPointEnhancer from './BulletPointEnhancer';
 
 interface ResumeFormProps {
   resumeSchema: ResumeSchema;
@@ -71,6 +73,16 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeSchema, setResumeSchema, 
 
   const createRemover = <T extends {id: string}>(section: keyof ResumeSchema, items: T[]) => {
       return (id: string) => handleChange(section as any, items.filter(item => item.id !== id));
+  };
+  
+  // Helper to add single highlight from AI enhancer
+  const handleAddHighlight = (section: 'work' | 'volunteer' | 'projects', id: string, text: string) => {
+      // @ts-ignore - dynamic access is safe here given the sections passed
+      const items = resumeSchema[section];
+      const newItems = items.map((item: any) => 
+          item.id === id ? { ...item, highlights: [...item.highlights, text] } : item
+      );
+      handleChange(section, newItems);
   };
   
   // Work
@@ -227,10 +239,13 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeSchema, setResumeSchema, 
                         <textarea name="summary" value={exp.summary} onChange={e => handleWorkChange(exp.id, e)} rows={2} className={`${inputClass} mb-2`} />
                         <label className={labelClass}>Highlights (one per line)</label>
                         <textarea name="highlights" value={exp.highlights.join('\n')} onChange={e => handleWorkChange(exp.id, e)} rows={5} className={inputClass} />
-                        <div className="flex items-center justify-start mt-2">
-                        <button onClick={() => handleGenerateExperience(exp)} disabled={aiLoading[exp.id]} className="flex items-center gap-2 px-3 py-1.5 bg-accent text-white text-sm rounded-md hover:bg-orange-600 disabled:bg-orange-300 disabled:cursor-not-allowed">
+                        
+                        <BulletPointEnhancer onAdd={(text) => handleAddHighlight('work', exp.id, text)} />
+
+                        <div className="flex items-center justify-start mt-4 border-t pt-4 border-neutral-200/50">
+                        <button onClick={() => handleGenerateExperience(exp)} disabled={aiLoading[exp.id]} className="flex items-center gap-2 px-3 py-1.5 bg-neutral-100 text-neutral-700 text-sm rounded-md hover:bg-neutral-200 disabled:opacity-50">
                             <SparklesIcon className="w-4 h-4" />
-                            {aiLoading[exp.id] ? 'Generating...' : 'Generate Highlights'}
+                            {aiLoading[exp.id] ? 'Generating...' : 'Auto-Generate All Highlights'}
                         </button>
                         </div>
                     </SubItemWrapper>
@@ -291,12 +306,15 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeSchema, setResumeSchema, 
                         <textarea name="description" value={proj.description} onChange={e => handleProjectChange(proj.id, e)} rows={2} className={`${inputClass} mb-2`} />
                         <label className={labelClass}>Highlights (one per line)</label>
                         <textarea name="highlights" value={proj.highlights.join('\n')} onChange={e => handleProjectChange(proj.id, e)} rows={4} className={`${inputClass} mb-2`} />
+                        
+                        <BulletPointEnhancer onAdd={(text) => handleAddHighlight('projects', proj.id, text)} />
+
                         <label className={labelClass}>Keywords (one per line)</label>
                         <textarea name="keywords" value={proj.keywords.join('\n')} onChange={e => handleProjectChange(proj.id, e)} rows={2} className={inputClass} />
-                        <div className="flex items-center justify-start mt-2">
-                        <button onClick={() => handleGenerateProject(proj)} disabled={aiLoading[proj.id]} className="flex items-center gap-2 px-3 py-1.5 bg-accent text-white text-sm rounded-md hover:bg-orange-600 disabled:bg-orange-300 disabled:cursor-not-allowed">
+                        <div className="flex items-center justify-start mt-4 border-t pt-4 border-neutral-200/50">
+                        <button onClick={() => handleGenerateProject(proj)} disabled={aiLoading[proj.id]} className="flex items-center gap-2 px-3 py-1.5 bg-neutral-100 text-neutral-700 text-sm rounded-md hover:bg-neutral-200 disabled:opacity-50">
                             <SparklesIcon className="w-4 h-4" />
-                            {aiLoading[proj.id] ? 'Generating...' : 'Generate Highlights'}
+                            {aiLoading[proj.id] ? 'Generating...' : 'Auto-Generate All Highlights'}
                         </button>
                         </div>
                     </SubItemWrapper>
@@ -319,6 +337,8 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeSchema, setResumeSchema, 
                         <textarea name="summary" value={vol.summary} onChange={e => handleVolunteerChange(vol.id, e)} rows={2} className={`${inputClass} mb-2`} />
                         <label className={labelClass}>Highlights (one per line)</label>
                         <textarea name="highlights" value={vol.highlights.join('\n')} onChange={e => handleVolunteerChange(vol.id, e)} rows={4} className={inputClass} />
+
+                        <BulletPointEnhancer onAdd={(text) => handleAddHighlight('volunteer', vol.id, text)} />
                     </SubItemWrapper>
                     ))}
                     <button onClick={addVolunteer} className="flex items-center gap-2 text-secondary font-semibold hover:text-blue-700"><PlusCircleIcon className="w-5 h-5"/> Add Volunteer Role</button>
@@ -423,7 +443,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeSchema, setResumeSchema, 
 
   return (
     <div className="flex flex-col h-full">
-        <div className="flex-grow">
+        <div className="flex-grow" key={activeSection}>
             {renderActiveSection()}
         </div>
         <div className="flex justify-between items-center pt-4 border-t sticky bottom-0 bg-white pb-4">

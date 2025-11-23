@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ResumeSchema, SectionKey } from '../../types';
 
@@ -154,7 +155,7 @@ const OnyxTemplate: React.FC<TemplateProps> = ({ data, sectionOrder }) => {
   }
 
   return (
-    <div className="p-8 text-xs font-sans text-gray-700 bg-white">
+    <div className="p-8 text-xs font-sans text-gray-700 bg-white min-h-full">
       <header className="text-left mb-6">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900">{basics.name}</h1>
         <p className="text-base text-gray-600 font-medium mt-1">{basics.label}</p>

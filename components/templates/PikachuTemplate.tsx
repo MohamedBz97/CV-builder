@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ResumeSchema, SectionKey } from '../../types';
 
@@ -165,7 +166,7 @@ const PikachuTemplate: React.FC<TemplateProps> = ({ data, sectionOrder }) => {
   const sidebarSectionKeys: SectionKey[] = ['education', 'skills', 'languages', 'interests'];
 
   return (
-    <div className="flex font-sans text-xs h-full">
+    <div className="flex font-sans text-xs min-h-full">
       {/* Sidebar */}
       <div className="w-1/3 bg-gray-800 text-white p-6 flex flex-col">
         <div className="text-left mb-6">

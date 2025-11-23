@@ -111,7 +111,7 @@ export const DEFAULT_LAYOUT: ResumeLayout = {
 export const DEFAULT_COVER_LETTER_SCHEMA: CoverLetterSchema = {
     date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
     recipientName: 'Hiring Manager',
-    recipientTitle: 'Hiring Manager Title',
+    recipientTitle: 'Hiring Manager',
     companyName: 'Company Name',
     salutation: 'Dear Hiring Manager,',
     body: [
@@ -121,6 +121,8 @@ export const DEFAULT_COVER_LETTER_SCHEMA: CoverLetterSchema = {
         "Thank you for considering my application. I am enthusiastic about the opportunity to discuss how my background and skills can benefit [Company Name]. I look forward to hearing from you."
     ],
     signoff: 'Sincerely,',
+    jobDescription: '',
+    tone: 'Confident',
 };
 
 export const DEFAULT_JOBS: Job[] = [

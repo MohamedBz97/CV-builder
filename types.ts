@@ -176,6 +176,8 @@ export enum Template {
   PIKACHU = 'Pikachu',
 }
 
+export type CoverLetterTone = 'Confident' | 'Humble' | 'Creative' | 'Professional';
+
 export interface CoverLetterSchema {
   date: string;
   recipientName: string;
@@ -184,6 +186,8 @@ export interface CoverLetterSchema {
   salutation: string;
   body: string[];
   signoff: string;
+  jobDescription?: string; // Optional field to store raw JD
+  tone: CoverLetterTone;
 }
 
 export interface AtsAnalysisResult {
@@ -194,4 +198,5 @@ export interface AtsAnalysisResult {
   };
   presentKeywords: string[];
   analysis: string;
+  score: number;
 }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ResumeSchema, Template, SectionKey } from '../types';
 import ClassicTemplate from './templates/ClassicTemplate';
@@ -29,7 +30,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData, template, sec
   };
 
   return (
-    <div className="bg-white shadow-lg aspect-[8.5/11] w-full max-w-[816px] mx-auto overflow-hidden">
+    <div className="bg-white shadow-lg w-full max-w-[816px] min-h-[1056px] mx-auto relative">
       {renderTemplate()}
     </div>
   );

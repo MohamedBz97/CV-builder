@@ -1,5 +1,5 @@
 {
-  "name": "ai-resume-architect",
+  "name": "cv-legend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,7 +15,8 @@
     "jspdf": "^3.0.3",
     "react": "^19.2.0",
     "html2canvas": "^1.4.1",
-    "react-router-dom": "^7.9.5"
+    "react-router-dom": "^7.9.5",
+    "docx": "^8.5.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

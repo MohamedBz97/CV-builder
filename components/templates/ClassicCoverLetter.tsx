@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CoverLetterSchema, Basics } from '../../types';
 
@@ -10,7 +11,7 @@ const ClassicCoverLetter: React.FC<TemplateProps> = ({ data, basics }) => {
   const { date, recipientName, recipientTitle, companyName, salutation, body, signoff } = data;
 
   return (
-    <div className="p-12 font-serif text-sm text-gray-800 h-full flex flex-col bg-white">
+    <div className="p-12 font-serif text-sm text-gray-800 min-h-full flex flex-col bg-white">
        <header className="text-center mb-8 border-b-2 border-gray-300 pb-4">
         <h1 className="text-4xl font-bold tracking-wider text-gray-900">{basics.name}</h1>
         <p className="text-lg text-blue-800 font-semibold mt-1">{basics.label}</p>

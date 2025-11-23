@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CoverLetterSchema, Basics } from '../../types';
 
@@ -10,7 +11,7 @@ const OnyxCoverLetter: React.FC<TemplateProps> = ({ data, basics }) => {
    const { date, recipientName, recipientTitle, companyName, salutation, body, signoff } = data;
 
   return (
-    <div className="p-8 text-xs font-sans text-gray-700 bg-white h-full flex flex-col">
+    <div className="p-8 text-xs font-sans text-gray-700 bg-white min-h-full flex flex-col">
       <header className="text-left mb-8 border-b pb-4 border-gray-200">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900">{basics.name}</h1>
         <p className="text-lg text-gray-600 font-medium mt-1">{basics.label}</p>

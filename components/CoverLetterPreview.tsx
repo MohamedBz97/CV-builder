@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CoverLetterSchema, Basics, Template } from '../types';
 import ClassicCoverLetter from './templates/ClassicCoverLetter';
@@ -29,7 +30,7 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ coverLetterData
   };
 
   return (
-    <div className="bg-white shadow-lg aspect-[8.5/11] w-full max-w-[816px] mx-auto overflow-hidden">
+    <div className="bg-white shadow-lg w-full max-w-[816px] min-h-[1056px] mx-auto relative">
       {renderTemplate()}
     </div>
   );

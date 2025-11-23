@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CoverLetterSchema, Basics } from '../../types';
 
@@ -10,7 +11,7 @@ const ModernCoverLetter: React.FC<TemplateProps> = ({ data, basics }) => {
   const { date, recipientName, recipientTitle, companyName, salutation, body, signoff } = data;
 
   return (
-    <div className="flex font-sans text-sm h-full bg-white">
+    <div className="flex font-sans text-sm min-h-full bg-white">
       {/* Sidebar */}
       <div className="w-1/3 bg-neutral-800 text-white p-8 flex flex-col">
         <div className="text-center mb-8">

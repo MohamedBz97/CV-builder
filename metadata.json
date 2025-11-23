@@ -1,5 +1,5 @@
 {
-  "name": "AI Resume Architect",
-  "description": "An intelligent, step-by-step resume and cover letter builder inspired by modern resume platforms. Features AI-powered content suggestions, multiple templates, PDF export, and a job application tracker, all while prioritizing user privacy by keeping data client-side.",
+  "name": "CV Legend",
+  "description": "CV Legend is the ultimate AI-powered resume architect. Build legendary resumes and cover letters instantly without sign-ups. Your data stays on your device.",
   "requestFramePermissions": []
 }

@@ -27,6 +27,13 @@ export const SparklesIcon: React.FC<{className?: string}> = ({className}) => (
     </SVGIcon>
 );
 
+export const WandSparklesIcon: React.FC<{className?: string}> = ({className}) => (
+    <SVGIcon className={className || "w-6 h-6"}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a3.375 3.375 0 00-2.672-2.672L11.25 18l1.938-.648a3.375 3.375 0 002.672-2.672L16.25 13.5l.648 1.938a3.375 3.375 0 002.672 2.672L21 18l-1.938.648a3.375 3.375 0 00-2.672 2.672z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3l1.5 1.5M4.5 3l-1.5 1.5" />
+    </SVGIcon>
+);
+
 export const UserCircleIcon: React.FC<{className?: string}> = ({className}) => (
   <SVGIcon className={className || "w-6 h-6"}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -84,7 +91,6 @@ export const CodeBracketIcon: React.FC<{className?: string}> = ({className}) => 
 export const TrophyIcon: React.FC<{className?: string}> = ({className}) => (
     <SVGIcon className={className || "w-6 h-6"}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9a9.75 9.75 0 001.056 4.637m7.888-4.637a9.75 9.75 0 01-1.056 4.637m0 0a9.004 9.004 0 01-7.888 0M12 2.25v.01M12 6.75v.01M12 11.25v.01M12 15.75v.01M3.75 6.75h16.5M3.75 11.25h16.5m-16.5 4.5h16.5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9a9.75 9.75 0 001.056 4.637m7.888-4.637a9.75 9.75 0 01-1.056 4.637m0 0a9.004 9.004 0 01-7.888 0M12 2.25v.01M12 6.75v.01M12 11.25v.01M12 15.75v.01M3.75 6.75h16.5M3.75 11.25h16.5m-16.5 4.5h16.5" />
     </SVGIcon>
 );
 
@@ -120,7 +126,14 @@ export const FaceSmileIcon: React.FC<{className?: string}> = ({className}) => (
 
 export const UsersIcon: React.FC<{className?: string}> = ({className}) => (
     <SVGIcon className={className || "w-6 h-6"}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.542 2.72c-3.142-.4-6.282-1.2-9.423-2.33a3 3 0 01-1.34-2.81V7.72c0-1.242.6-2.35 1.5-3.032.9-.68 2.05-1.135 3.25-1.488.42-.127.85-.24 1.28-.344 1.08-.28 2.22-.42 3.36-.42s2.28.14 3.36.42c.43.104.86.217 1.28.344 1.2.353 2.35.808 3.25 1.488.9.682 1.5 1.79 1.5 3.032v4.24c0 1.13-1.04 2.13-2.37 2.65a48.422 48.422 0 01-9.15 2.147zM12 12.75a3 3 0 100-6 3 3 0 000 6z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.542-3.729A9.953 9.953 0 0112 15c-2.7 0-5.263.98-7.258 2.638A8.966 8.966 0 003 21a8.966 8.966 0 01-2.275-5.982c0-5.024 4.029-9.094 9.094-9.094z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+    </SVGIcon>
+);
+
+export const ChevronDoubleLeftIcon: React.FC<{className?: string}> = ({className}) => (
+    <SVGIcon className={className || "w-6 h-6"}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
     </SVGIcon>
 );
 
@@ -130,27 +143,39 @@ export const MagnifyingGlassCircleIcon: React.FC<{className?: string}> = ({class
   </SVGIcon>
 );
 
-export const ChevronDoubleLeftIcon: React.FC<{className?: string}> = ({className}) => (
-  <SVGIcon className={className || "w-6 h-6"}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
-  </SVGIcon>
+export const CloudArrowUpIcon: React.FC<{className?: string}> = ({className}) => (
+    <SVGIcon className={className || "w-6 h-6"}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+    </SVGIcon>
+);
+
+export const ArrowDownOnSquareIcon: React.FC<{className?: string}> = ({className}) => (
+    <SVGIcon className={className || "w-6 h-6"}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15M9 12l3 3m0 0l3-3m-3 3V2.25" />
+    </SVGIcon>
+);
+
+export const ArrowUpOnSquareIcon: React.FC<{className?: string}> = ({className}) => (
+    <SVGIcon className={className || "w-6 h-6"}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m-3-3V2.25m0 0l3 3m-3-3l-3 3" />
+    </SVGIcon>
+);
+
+export const ArrowTopRightOnSquareIcon: React.FC<{className?: string}> = ({className}) => (
+    <SVGIcon className={className || "w-6 h-6"}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+    </SVGIcon>
 );
 
 export const Bars3Icon: React.FC<{className?: string}> = ({className}) => (
-    <SVGIcon className={className || "w-6 h-6"}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-    </SVGIcon>
+  <SVGIcon className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+  </SVGIcon>
 );
 
 export const XMarkIcon: React.FC<{className?: string}> = ({className}) => (
-    <SVGIcon className={className || "w-6 h-6"}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </SVGIcon>
-);
-
-export const CloudArrowUpIcon: React.FC<{className?: string}> = ({className}) => (
   <SVGIcon className={className || "w-6 h-6"}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
   </SVGIcon>
 );
 
@@ -162,12 +187,54 @@ export const CheckCircleIcon: React.FC<{className?: string}> = ({className}) => 
 
 export const ShieldCheckIcon: React.FC<{className?: string}> = ({className}) => (
   <SVGIcon className={className || "w-6 h-6"}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c1.268 0 2.39-.63 3.068-1.593a3.746 3.746 0 013.296-1.043 3.746 3.746 0 011.043-3.296A3.745 3.745 0 0121 12z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
   </SVGIcon>
 );
 
 export const BoltIcon: React.FC<{className?: string}> = ({className}) => (
   <SVGIcon className={className || "w-6 h-6"}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+  </SVGIcon>
+);
+
+export const StarIcon: React.FC<{className?: string}> = ({className}) => (
+  <SVGIcon className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.545.044.77.77.326 1.163l-4.304 3.86a.562.562 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.304-3.86c-.444-.393-.219-1.119.326-1.163l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+  </SVGIcon>
+);
+
+export const GiftIcon: React.FC<{className?: string}> = ({className}) => (
+  <SVGIcon className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H4.5a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h17.25c.75 0 1.125-.414 1.125-1.125V7.5a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v3.375c0 .71.375 1.125 1.125 1.125z" />
+  </SVGIcon>
+);
+
+export const CheckBadgeIcon: React.FC<{className?: string}> = ({className}) => (
+  <SVGIcon className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+  </SVGIcon>
+);
+
+export const ChevronDownIcon: React.FC<{className?: string}> = ({className}) => (
+    <SVGIcon className={className || "w-6 h-6"}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+    </SVGIcon>
+);
+
+export const LockClosedIcon: React.FC<{className?: string}> = ({className}) => (
+  <SVGIcon className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+  </SVGIcon>
+);
+
+export const GlobeAmericasIcon: React.FC<{className?: string}> = ({className}) => (
+  <SVGIcon className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+  </SVGIcon>
+);
+
+export const CreditCardIcon: React.FC<{className?: string}> = ({className}) => (
+  <SVGIcon className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
   </SVGIcon>
 );
